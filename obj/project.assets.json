@@ -11315,19 +11315,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FERNANDO\\.nuget\\packages\\": {}
+    "C:\\Users\\INGRID\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FERNANDO\\Desktop\\petech2\\appPetech\\appPetech.csproj",
+      "projectUniqueName": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\appPetech.csproj",
       "projectName": "appPetech",
-      "projectPath": "C:\\Users\\FERNANDO\\Desktop\\petech2\\appPetech\\appPetech.csproj",
-      "packagesPath": "C:\\Users\\FERNANDO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FERNANDO\\Desktop\\petech2\\appPetech\\obj\\",
+      "projectPath": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\appPetech.csproj",
+      "packagesPath": "C:\\Users\\INGRID\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\FERNANDO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\INGRID\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -11403,7 +11403,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

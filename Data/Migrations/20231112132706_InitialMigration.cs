@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace appPetech.Data.Migrations
+namespace appPetech.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMigration : Migration
@@ -63,6 +63,60 @@ namespace appPetech.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_t_contacto", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_delivery",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombre = table.Column<string>(type: "text", nullable: false),
+                    apepat = table.Column<string>(type: "text", nullable: false),
+                    apemat = table.Column<string>(type: "text", nullable: false),
+                    dni = table.Column<string>(type: "text", nullable: false),
+                    celular = table.Column<string>(type: "text", nullable: false),
+                    vehiculo = table.Column<string>(type: "text", nullable: false),
+                    placa = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_delivery", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_pago",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    PaymentDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    NombreTarjeta = table.Column<string>(type: "text", nullable: true),
+                    NumeroTarjeta = table.Column<string>(type: "text", nullable: true),
+                    MontoTotal = table.Column<decimal>(type: "numeric", nullable: false),
+                    UserID = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_pago", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_producto",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    Descripcion = table.Column<string>(type: "text", nullable: true),
+                    Precio = table.Column<decimal>(type: "numeric", nullable: false),
+                    PorcentajeDescuento = table.Column<decimal>(type: "numeric", nullable: false),
+                    ImageName = table.Column<string>(type: "text", nullable: true),
+                    Status = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_producto", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -171,6 +225,75 @@ namespace appPetech.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "t_order",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserID = table.Column<string>(type: "text", nullable: true),
+                    Total = table.Column<decimal>(type: "numeric", nullable: false),
+                    pagoId = table.Column<int>(type: "integer", nullable: true),
+                    Status = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_order", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_t_order_t_pago_pagoId",
+                        column: x => x.pagoId,
+                        principalTable: "t_pago",
+                        principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_cart",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    UserID = table.Column<string>(type: "text", nullable: true),
+                    ProductoId = table.Column<int>(type: "integer", nullable: true),
+                    Cantidad = table.Column<int>(type: "integer", nullable: false),
+                    Precio = table.Column<decimal>(type: "numeric", nullable: false),
+                    Status = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_cart", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_t_cart_t_producto_ProductoId",
+                        column: x => x.ProductoId,
+                        principalTable: "t_producto",
+                        principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "t_order_detail",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ProductoId = table.Column<int>(type: "integer", nullable: true),
+                    Cantidad = table.Column<int>(type: "integer", nullable: false),
+                    Precio = table.Column<decimal>(type: "numeric", nullable: false),
+                    pedidoID = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_order_detail", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_t_order_detail_t_order_pedidoID",
+                        column: x => x.pedidoID,
+                        principalTable: "t_order",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_t_order_detail_t_producto_ProductoId",
+                        column: x => x.ProductoId,
+                        principalTable: "t_producto",
+                        principalColumn: "id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -207,6 +330,26 @@ namespace appPetech.Data.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_cart_ProductoId",
+                table: "t_cart",
+                column: "ProductoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_order_pagoId",
+                table: "t_order",
+                column: "pagoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_order_detail_pedidoID",
+                table: "t_order_detail",
+                column: "pedidoID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_t_order_detail_ProductoId",
+                table: "t_order_detail",
+                column: "ProductoId");
         }
 
         /// <inheritdoc />
@@ -228,13 +371,31 @@ namespace appPetech.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "t_cart");
+
+            migrationBuilder.DropTable(
                 name: "t_contacto");
+
+            migrationBuilder.DropTable(
+                name: "t_delivery");
+
+            migrationBuilder.DropTable(
+                name: "t_order_detail");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "t_order");
+
+            migrationBuilder.DropTable(
+                name: "t_producto");
+
+            migrationBuilder.DropTable(
+                name: "t_pago");
         }
     }
 }

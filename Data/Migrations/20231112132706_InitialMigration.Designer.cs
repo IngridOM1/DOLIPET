@@ -9,11 +9,11 @@ using appPetech.Data;
 
 #nullable disable
 
-namespace appPetech.Data.Migrations
+namespace appPetech.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230421191049_ProductoMigration")]
-    partial class ProductoMigration
+    [Migration("20231112132706_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -225,6 +225,38 @@ namespace appPetech.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("appPetech.Models.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("numeric");
+
+                    b.Property<int?>("ProductoId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("t_cart");
+                });
+
             modelBuilder.Entity("appPetech.Models.Contacto", b =>
                 {
                     b.Property<int>("Id")
@@ -245,6 +277,142 @@ namespace appPetech.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("t_contacto");
+                });
+
+            modelBuilder.Entity("appPetech.Models.Delivery", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApellidoMaterno")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("apemat");
+
+                    b.Property<string>("ApellidoPaterno")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("apepat");
+
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("celular");
+
+                    b.Property<string>("Dni")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("dni");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("nombre");
+
+                    b.Property<string>("Placa")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("placa");
+
+                    b.Property<string>("Vehiculo")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("vehiculo");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_delivery");
+                });
+
+            modelBuilder.Entity("appPetech.Models.DetallePedido", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("numeric");
+
+                    b.Property<int?>("ProductoId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("pedidoID")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductoId");
+
+                    b.HasIndex("pedidoID");
+
+                    b.ToTable("t_order_detail");
+                });
+
+            modelBuilder.Entity("appPetech.Models.Pago", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("MontoTotal")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("NombreTarjeta")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NumeroTarjeta")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_pago");
+                });
+
+            modelBuilder.Entity("appPetech.Models.Pedido", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Status")
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("UserID")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("pagoId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("pagoId");
+
+                    b.ToTable("t_order");
                 });
 
             modelBuilder.Entity("appPetech.Models.Producto", b =>
@@ -328,6 +496,39 @@ namespace appPetech.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("appPetech.Models.Cart", b =>
+                {
+                    b.HasOne("appPetech.Models.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId");
+
+                    b.Navigation("Producto");
+                });
+
+            modelBuilder.Entity("appPetech.Models.DetallePedido", b =>
+                {
+                    b.HasOne("appPetech.Models.Producto", "Producto")
+                        .WithMany()
+                        .HasForeignKey("ProductoId");
+
+                    b.HasOne("appPetech.Models.Pedido", "pedido")
+                        .WithMany()
+                        .HasForeignKey("pedidoID");
+
+                    b.Navigation("Producto");
+
+                    b.Navigation("pedido");
+                });
+
+            modelBuilder.Entity("appPetech.Models.Pedido", b =>
+                {
+                    b.HasOne("appPetech.Models.Pago", "pago")
+                        .WithMany()
+                        .HasForeignKey("pagoId");
+
+                    b.Navigation("pago");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,21 +2,18 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using appPetech.Data;
 
 #nullable disable
 
-namespace appPetech.Data.Migrations
+namespace appPetech.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230519212654_PagoPedido2Migration")]
-    partial class PagoPedido2Migration
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -277,6 +274,55 @@ namespace appPetech.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("t_contacto");
+                });
+
+            modelBuilder.Entity("appPetech.Models.Delivery", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApellidoMaterno")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("apemat");
+
+                    b.Property<string>("ApellidoPaterno")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("apepat");
+
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("celular");
+
+                    b.Property<string>("Dni")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("dni");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("nombre");
+
+                    b.Property<string>("Placa")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("placa");
+
+                    b.Property<string>("Vehiculo")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("vehiculo");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_delivery");
                 });
 
             modelBuilder.Entity("appPetech.Models.DetallePedido", b =>
