@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aLxV8rk0Oc1HV3cqiX+CgYH5KOWG2+kg+alZJluts7s=",
+  "Hash": "aIC89lXPTb1G3HRcu/Gtr6cUTCcdCjDQdy8AHqcPgLk=",
   "Source": "appPetech",
   "BasePath": "_content/appPetech",
   "Mode": "Default",
@@ -2584,6 +2584,23 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\prueba8.png"
     },
     {
+      "Identity": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\purinaproplan.png",
+      "SourceId": "appPetech",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\",
+      "BasePath": "_content/appPetech",
+      "RelativePath": "imagenes/purinaproplan.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\purinaproplan.png"
+    },
+    {
       "Identity": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\register.png",
       "SourceId": "appPetech",
       "SourceType": "Discovered",
@@ -2633,6 +2650,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\RegistrarProductoImg.png"
+    },
+    {
+      "Identity": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\ricocan.jpg",
+      "SourceId": "appPetech",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\",
+      "BasePath": "_content/appPetech",
+      "RelativePath": "imagenes/ricocan.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\ricocan.jpg"
     },
     {
       "Identity": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\ricocat.jpg",
