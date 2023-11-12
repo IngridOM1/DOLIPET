@@ -365,12 +365,20 @@
       "PackagePath": "staticwebassets\\imagenes\\prueba8.png"
     },
     {
+      "Id": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\purinaproplan.png",
+      "PackagePath": "staticwebassets\\imagenes\\purinaproplan.png"
+    },
+    {
       "Id": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\register.png",
       "PackagePath": "staticwebassets\\imagenes\\register.png"
     },
     {
       "Id": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\registrarNuevoDelivery.png",
       "PackagePath": "staticwebassets\\imagenes\\registrarNuevoDelivery.png"
+    },
+    {
+      "Id": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\ricocan.jpg",
+      "PackagePath": "staticwebassets\\imagenes\\ricocan.jpg"
     },
     {
       "Id": "C:\\Users\\INGRID\\OneDrive - Universidad de San Martin de Porres\\Documentos\\trabajoIA\\dolipet\\wwwroot\\imagenes\\ricocat.jpg",
