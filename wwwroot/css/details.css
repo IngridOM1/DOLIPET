@@ -64,7 +64,7 @@ body {
 .card-title-price-before {
   display: flex;
   align-items: center;
-  color: #ED981D;
+  color: #3C5E93;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 13px;
@@ -73,14 +73,14 @@ body {
 .card-title-price {
   font-family: "Fraunces", serif;
   font-weight: 700;
-  color: #ED981D;
+  color: #3C5E93;
   margin-right: 5px;
   font-size: 34px;
   margin: 0px;
 }
 /*BOTONES*/
 .btn-btna {
-  background-color: #ED981D;
+  background-color: #3C5E93;
   text-align: center;
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
@@ -93,7 +93,7 @@ body {
   color: white;
 }
 .btn-btna:hover {
-  background-color: #e6b269;
+  background-color: #3C5E93;
   cursor: pointer;
   text-decoration: none;
   color: white;
