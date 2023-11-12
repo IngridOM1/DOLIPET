@@ -72,7 +72,7 @@
 
 .carousel__dot--active {
   transform: scale(1.5);
-  background-color: #FFDE59;
+  background-color: #565656 ;
 }
 
 @media (max-width: 768px) {
@@ -114,7 +114,7 @@ section {
   border: none;
 }
 .color-icon {
-  color: #FFDE59; /* Reemplaza "red" con el color deseado */
+  color: #3C5E93; /* Reemplaza "red" con el color deseado */
 }
 .icon-large {
   font-size: 50px; /* Ajusta el tamaño del icono según tus preferencias */
@@ -142,7 +142,7 @@ section {
 
 .productComponentContainer_precio{
     font-size: 1.8em;
-    color:rgb(255 214 91);
+    color:rgb(69, 71, 73);
     font-weight: 600;
 }
 
@@ -150,7 +150,7 @@ section {
     width: 85%;
     /*margin: 20px auto;*/
     padding: 5px 10px;
-    border: 2px solid #FFD65B;
+    border: 2px solid #9CCAE3;
     border-radius: 5px 0px 0px 5px;
 }
 
@@ -163,7 +163,7 @@ section {
 
 .searchForm_btn{
     border: none;
-    background-color: rgb(255 214 91);
+    background-color: rgb(156, 202, 227);
     border-radius: 0px 5px 5px 0px;
 }
 
@@ -189,7 +189,7 @@ section {
 }
 
 .indexSection_h3{
-    color:rgb(255 214 91);
+    color:rgb(156, 202, 227);
     width:70%;
     padding:5px;
     margin:20px auto;
@@ -222,7 +222,7 @@ section {
 
 .productComponentContainer_btn{
     padding:5px 10px;
-    background-color:#FFD65B;
+    background-color:#9CCAE3;
     width:100%;
     border:none;
     border-radius:10px;
