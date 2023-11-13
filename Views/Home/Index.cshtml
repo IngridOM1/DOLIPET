@@ -19,6 +19,20 @@
     <link href="~/css/index.css" rel="stylesheet" />
 }
 
+
+@section Scripts {
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="DOLIBOT"
+      agent-id="f5b0d764-f578-4c10-a2c4-b321a17d7975"
+      language-code="en"
+    ></df-messenger>
+}
+
+
+
+
 <div class="popUpContainer" id="popup-container" style="display: none;" id="popup-container">
     <div class="popUpContainer_imgContainer">
         <div class="popUpContainer_close" id='popup-close'></div>
